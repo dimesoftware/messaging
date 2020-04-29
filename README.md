@@ -1,5 +1,7 @@
 # Dime.Messaging
 
+![Build status](https://dev.azure.com/dimenicsbe/Utilities/_apis/build/status/Dime.Messaging?branchName=master)
+
 ## Introduction
 
 Extensions to the System.Messaging namespace.
