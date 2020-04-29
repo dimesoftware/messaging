@@ -1,10 +1,8 @@
-# Dime.System
-
-[![Build Status](https://dev.azure.com/dimenicsbe/Utilities/_apis/build/status/System%20-%20MASTER%20-%20CI?branchName=master)](https://dev.azure.com/dimenicsbe/Utilities/_build/latest?definitionId=84&branchName=master)
+# Dime.Messaging
 
 ## Introduction
 
-Extensions to the System namespace.
+Extensions to the System.Messaging namespace.
 
 ## Getting Started
 
@@ -15,7 +13,7 @@ Extensions to the System namespace.
 
 The most notable types in this assembly include:
 
-- `Ensure`: a handy and lightweight validation class.
+- `MsmqInstaller`: creates MSMQ queues
 
 ## Build and Test
 
@@ -25,18 +23,19 @@ The most notable types in this assembly include:
 
 ## Installation
 
-Use the package manager NuGet to install Dime.System:
+Use the package manager NuGet to install Dime.Messaging:
 
-`dotnet add package Dime.System`
+`dotnet add package Dime.Messaging`
 
 ## Usage
 
 ``` csharp
-using System;
+using System.Messaging;
 
-public void MyMethod(MyClass myClassParameter)
+public void Main(params string[] args)
 {
-    Ensure.Argument.NotNull(myClassParameter, nameof(myClassParameter), "Parameter cannot be null");
+    IMsmqInstaller msmqInstaller = new MsmqInstaller();
+    msmqInstaller.Install("myApp_newItems", "myApp_updatedItems").Wait();
 }
 ```
 
@@ -48,4 +47,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-MIT
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)

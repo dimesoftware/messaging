@@ -9,10 +9,6 @@ namespace System.Messaging
     /// </summary>
     public class MsmqInstaller : IMsmqInstaller
     {
-        public MsmqInstaller()
-        {
-        }
-
         /// <summary>
         /// Adds the MSMQ queues
         /// </summary>
@@ -65,16 +61,16 @@ namespace System.Messaging
         /// Creates a public queue on the local machine
         /// </summary>
         /// <param name="hostname">The name of the host</param>
-        /// <param name="queuename">The name of the queue</param>
+        /// <param name="queueName">The name of the queue</param>
         /// <returns></returns>
-        public MessageQueue CreatePublic(string hostname, string queuename)
+        public MessageQueue CreatePublic(string hostname, string queueName)
         {
-            string path = $@"{hostname}\{queuename}";
-            if (!MessageQueue.Exists(path))
-                using (MessageQueue.Create(path))
-                    return new MessageQueue(path);
+            string path = $@"{hostname}\{queueName}";
+            if (MessageQueue.Exists(path))
+                return new MessageQueue(path);
 
-            return new MessageQueue(path);
+            using (MessageQueue.Create(path))
+                return new MessageQueue(path);
         }
     }
 }

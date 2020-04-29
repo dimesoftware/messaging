@@ -18,7 +18,7 @@
     <Description>Extensions and utilities for the System.Messaging namespace.
 Makes creating and securing MSMQ Queues easier.</Description>
     <PackageIconUrl>http://dimenuget.azurewebsites.net/Images/dimenuget.png</PackageIconUrl>
-    <RepositoryType>TFVC</RepositoryType>
+    <RepositoryType>git</RepositoryType>
     <PackageTags>MSMQ;Messaging;Dime</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <Version>1.0.0-beta.3</Version>

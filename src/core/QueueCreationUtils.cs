@@ -6,15 +6,13 @@ namespace System.Messaging
     {
         public static void SetDefaultPermissionsForQueue(MessageQueue queue, WellKnownSidType sid)
         {
-            AccessControlEntryType allow = AccessControlEntryType.Allow;
+            const AccessControlEntryType allow = AccessControlEntryType.Allow;
             queue.SetPermissions(GetGroupName(sid), MessageQueueAccessRights.FullControl, allow);
             queue.SetPermissions(GetGroupName(sid), MessageQueueAccessRights.FullControl, allow);
             queue.SetPermissions(GetGroupName(sid), MessageQueueAccessRights.FullControl, allow);
         }
 
-        static string AdminGroup = GetGroupName(WellKnownSidType.BuiltinAdministratorsSid);
-
-        static string GetGroupName(WellKnownSidType wellKnownSidType)
+        private static string GetGroupName(WellKnownSidType wellKnownSidType)
             => new SecurityIdentifier(wellKnownSidType, null).Translate(typeof(NTAccount)).ToString();
     }
 }
