@@ -47,14 +47,12 @@ namespace System.Messaging
             if (MessageQueue.Exists(path))
                 return new MessageQueue(path);
 
-            using (MessageQueue queue = MessageQueue.Create(path, isTransactional))
-            {
-                string everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null).Translate(typeof(NTAccount)).Value;
-                queue.SetPermissions(Environment.UserName, MessageQueueAccessRights.FullControl, AccessControlEntryType.Set);
-                queue.SetPermissions(everyone, MessageQueueAccessRights.FullControl, AccessControlEntryType.Set);
+            using MessageQueue queue = MessageQueue.Create(path, isTransactional);
+            string everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null).Translate(typeof(NTAccount)).Value;
+            queue.SetPermissions(Environment.UserName, MessageQueueAccessRights.FullControl, AccessControlEntryType.Set);
+            queue.SetPermissions(everyone, MessageQueueAccessRights.FullControl, AccessControlEntryType.Set);
 
-                return queue;
-            }
+            return queue;
         }
 
         /// <summary>

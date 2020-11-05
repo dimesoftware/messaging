@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/logo.png?raw=true" width="350" alt="Logo"></p>
+
 # Dime.Messaging
 
 ![Build status](https://dev.azure.com/dimenicsbe/Utilities/_apis/build/status/Dime.Messaging?branchName=master)
