@@ -2,7 +2,7 @@
 
 # Dime.Messaging
 
-![Build status](https://dev.azure.com/dimenicsbe/Utilities/_apis/build/status/Dime.Messaging?branchName=master)
+![Build status](https://dev.azure.com/dimesoftware/Utilities/_apis/build/status/Dime.Messaging?branchName=master)
 
 ## Introduction
 
